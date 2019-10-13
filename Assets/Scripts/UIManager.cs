@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Plays the background music if it is the initial run of this scene and sets it to be persistent between scenes
         if (firstRun)
         {
             backgroundMusic.GetComponent<AudioSource>().Play();
@@ -25,16 +26,19 @@ public class UIManager : MonoBehaviour
 
     }
 
+    // Loads the originial recreated tetris scene
     public void loadRecreatedLevel()
     {
         SceneManager.LoadScene("RecreatedGameScene");
     }
 
+    // Loads the new features design iteration tetris scene
     public void loadNewFeatureLevel()
     {
         SceneManager.LoadScene("NewFeatureGameScene");
     }
 
+    // Exits the game
     public void exitGame()
     {
         UnityEditor.EditorApplication.isPlaying = false;

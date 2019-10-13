@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Class responsible for handling the score streak of the player
 public class ScoreStreakManager : MonoBehaviour
 {
     public static int scoreStreak = 0;

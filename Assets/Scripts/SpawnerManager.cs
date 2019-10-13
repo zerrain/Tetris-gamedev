@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Class responsible for spawning new blocks at random
 public class SpawnerManager : MonoBehaviour
 {
     public GameObject[] tetrisBlocks;
@@ -18,6 +19,7 @@ public class SpawnerManager : MonoBehaviour
         
     }
 
+    // Randomly instantiates a new tetris block prefab from the set ones in the tetrisBlocks array
     public void spawnNewBlock()
     {
         Instantiate(tetrisBlocks[Random.Range(0, tetrisBlocks.Length)], transform.position, Quaternion.identity);

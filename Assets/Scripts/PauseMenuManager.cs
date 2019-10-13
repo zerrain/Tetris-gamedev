@@ -11,6 +11,8 @@ public class PauseMenuManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+
+        //Initializes pause menu objects
         pauseObjects = GameObject.FindGameObjectsWithTag("showOnPause");
         hidePauseObjects();
     }
@@ -21,6 +23,7 @@ public class PauseMenuManager : MonoBehaviour
         
     }
 
+    // Pauses the game if it is resumed, otherwise resumes the game if it is paused
     public void pauseGame()
     {
         if (Time.timeScale == 1)
@@ -35,22 +38,26 @@ public class PauseMenuManager : MonoBehaviour
         }
     }
 
+    // Restarts the current scene
     public void restartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // Starts the main menu scene
     public void launchMainMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
     }
 
+    // Hides all pause menu objects
     public void hidePauseObjects()
     {
         foreach (GameObject gameObject in pauseObjects)
             gameObject.SetActive(false);
     }
 
+    // Displays all pause menu objects
     public void showPauseObjects()
     {
         foreach (GameObject gameObject in pauseObjects)

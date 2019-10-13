@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Class responsible for handling the score of the player
 public class ScoreManager : MonoBehaviour
 {
     public static int score = 0;
