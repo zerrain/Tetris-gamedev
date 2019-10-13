@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,18 +17,18 @@ public class UIManager : MonoBehaviour
         
     }
 
-    void loadRecreatedLevel()
+    public void loadRecreatedLevel()
     {
-
+        SceneManager.LoadScene("RecreatedGameScene");
     }
 
-    void loadNewFeatureLevel()
+    public void loadNewFeatureLevel()
     {
-
+        SceneManager.LoadScene("NewFeatureGameScene");
     }
 
-    void exitGame()
+    public void exitGame()
     {
-
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
