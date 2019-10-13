@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BlockManager : MonoBehaviour
@@ -93,10 +94,20 @@ public class BlockManager : MonoBehaviour
         {
             if (lineExists(i))
             {
-                score++;
-                ScoreManager.score++;
                 clearLine(i);
                 moveBlocksDown(i);
+                score++;
+                ScoreManager.score++;
+                if (SceneManager.GetActiveScene().buildIndex == 2)
+                {
+                    ScoreStreakManager.scoreStreak++;
+                    if (ScoreStreakManager.scoreStreak == 5)
+                    {
+                        ScoreStreakManager.scoreStreak = 0;
+                        clearLine(0);
+                        moveBlocksDown(0);
+                    }
+                }
             }
         }
     }
@@ -139,6 +150,9 @@ public class BlockManager : MonoBehaviour
 
     void gameOver()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        ScoreManager.score = 0;
+        ScoreStreakManager.scoreStreak = 0;
+        GameObject.Find("Manager").GetComponent<GameOverMenuManager>().showGameOverObjects();
+        Time.timeScale = 0;
     }
 }

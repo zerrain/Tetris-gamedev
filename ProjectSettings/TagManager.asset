@@ -8,6 +8,9 @@ TagManager:
   - exitButton
   - newFeaturePlayButton
   - scoreText
+  - showOnPause
+  - showOnGameOver
+  - pauseButton
   layers:
   - Default
   - TransparentFX
