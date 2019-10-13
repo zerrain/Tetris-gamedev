@@ -6,11 +6,17 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public GameObject backgroundMusic;
+    static bool firstRun = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(backgroundMusic);
+        if (firstRun)
+        {
+            backgroundMusic.GetComponent<AudioSource>().Play();
+            DontDestroyOnLoad(backgroundMusic);
+            firstRun = false;
+        }
     }
 
     // Update is called once per frame
